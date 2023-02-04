@@ -10,8 +10,8 @@ resource "aws_route53_record" "www" {
   #   ttl = "300"
   #   records = ["${aws_elb.elb.dns_name}"]
   alias {
-    name                   = aws_elb.terra_lb.dns_name
-    zone_id                = aws_elb.terra_lb.zone_id
-    evaluate_target_health = false
+    name                   = aws_lb.terra_lb.dns_name
+    zone_id                = aws_lb.terra_lb.zone_id
+    evaluate_target_health = true
   }
 }

@@ -36,7 +36,7 @@ resource "aws_route_table" "terra_public_table" {
   }
 }
 
-resource "awas_route_table_association" "terra_route_association" {
+resource "aws_route_table_association" "terra_route_association" {
   for_each       = aws_subnet.terra_subnets
   subnet_id      = each.value.id
   route_table_id = aws_route_table.terra_public_table.id
