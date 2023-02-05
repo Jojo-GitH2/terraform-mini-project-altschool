@@ -25,7 +25,7 @@ resource "aws_key_pair" "generated_key" {
 
 resource "local_file" "ssh_key" {
   content         = tls_private_key.main.private_key_pem
-  filename        = "../ansible/${var.ssh_key}.pem"
+  filename        = "ansible/${var.ssh_key}.pem"
   file_permission = "0400"
 }
 
@@ -40,13 +40,13 @@ resource "aws_instance" "ec2_instance" {
   key_name                    = var.ssh_key
 
   provisioner "local-exec" {
-    command = "echo '${self.public_ip}' >> ../ansible/host-inventory"
+    command = "echo '${self.public_ip}' >> ansible/host-inventory"
   }
 }
 
 resource "null_resource" "ansible-playbook" {
   provisioner "local-exec" {
-    command = "ansible-playbook --private-key ${var.ssh_key}.pem ../ansible/playbook.yml"
+    command = "ansible-playbook --private-key ansible/${var.ssh_key}.pem -i ansible/host-inventory ansible/playbook.yml"
   }
 
   depends_on = [aws_instance.ec2_instance]
