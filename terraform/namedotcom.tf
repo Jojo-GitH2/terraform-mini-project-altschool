@@ -7,3 +7,6 @@
 #     aws_route53_zone.main.name_servers[3]
 #   ]
 # }
+
+# This file is meant to set nameservers for my domain name at name.com but I had permission issues with it.
+# So I input the nameservers manually at name.com.

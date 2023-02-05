@@ -22,4 +22,4 @@ ssh_key = "project_key"
 lb_name = "project-elb"
 tg_name = "project-tg"
 
-domain_names = { domain_name = "jonah-hng.live", subdomain_name = "altschool-mini.jonah-hng.live" }
+domain_names = { domain_name = "jonah-hng.live", subdomain_name = "terraform-test.jonah-hng.live" }
