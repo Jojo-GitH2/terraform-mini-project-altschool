@@ -14,8 +14,8 @@ crash.log
 #
 # example.tfvars
 
-*.tfvars
-*.tfvars.json
+*/*.tfvars
+*/*.tfvars.json
 
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
@@ -34,7 +34,8 @@ terraform.rc
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
 
-*.pem
+*/*.pem
+*/.terraform.*
 
 
 
